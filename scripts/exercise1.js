@@ -26,12 +26,23 @@
      * 2. afficher la valeur de chaque élément dans les <span/> générés
      */
 
-    var oneToTen = [1,2,3,4,5,6,7,8,9,10];
+    const nums = document.getElementById('ex1-nums')
+    const squares = document.getElementById('ex1-squares')
+    const span = document.createElement('span')
 
-    for (var i = 0; i < oneToTen.length; i++) {
-        document
-            .getElementById('ex1-nums')
-                .appendChild(document.createElement('span'))
+    const oneToTen = [...Array(15).keys()].map(i => ++i)
+    const oneToTenSquares = oneToTen.map(i => i * i)
+
+    for (let i of oneToTen) {
+      const num = span.cloneNode()
+      num.textContent = i
+      nums.appendChild(num)
+    }
+
+    for (let i of oneToTenSquares) {
+      const num = span.cloneNode()
+      num.textContent = i
+      squares.appendChild(num)
     }
 
 })()
