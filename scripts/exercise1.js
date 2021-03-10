@@ -1,4 +1,4 @@
-(function exercise1 () {
+(function exercise1() {
     /**
      * Le code ci-dessous est une ébauche avec des défauts et des améliorations possibles.
      * 
@@ -30,19 +30,28 @@
     const squares = document.getElementById('ex1-squares')
     const span = document.createElement('span')
 
+    function* sequenceGenerator(minVal, maxVal) {
+        let currVal = minVal;
+
+        while (currVal <= maxVal)
+            yield currVal++;
+    }
+    let oneToN = [...sequenceGenerator(1, 15)]
+    console.log(oneToN)
+
     const oneToTen = [...Array(15).keys()].map(i => ++i)
     const oneToTenSquares = oneToTen.map(i => i * i)
 
     for (let i of oneToTen) {
-      const num = span.cloneNode()
-      num.textContent = i
-      nums.appendChild(num)
+        const num = span.cloneNode()
+        num.textContent = i
+        nums.appendChild(num)
     }
 
     for (let i of oneToTenSquares) {
-      const num = span.cloneNode()
-      num.textContent = i
-      squares.appendChild(num)
+        const num = span.cloneNode()
+        num.textContent = i
+        squares.appendChild(num)
     }
 
 })()
